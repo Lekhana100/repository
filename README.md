@@ -18,9 +18,9 @@ Feature:
 
 ·       Validate on the payments page if the product details are correct.
 
-#Run Tests
+#Run Tests:
 Clone the repository and run the TestNGRunner file as TestNG Test
 
-#Reports path
+#Reports path:
 /automation/Report/assessment/FeatureReport.html
 
