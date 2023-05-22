@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-20T15:31:10 IST" name="Default suite" finished-at="2023-05-20T15:31:54 IST" duration-ms="43493">
+  <suite started-at="2023-05-22T16:00:15 IST" name="Default suite" finished-at="2023-05-22T16:01:15 IST" duration-ms="59943">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.qa.runner.TestNGRunner@35aea049]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.qa.runner.TestNGRunner@47987356]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-05-20T15:31:10 IST" name="Default test" finished-at="2023-05-20T15:31:54 IST" duration-ms="43493">
+    <test started-at="2023-05-22T16:00:15 IST" name="Default test" finished-at="2023-05-22T16:01:15 IST" duration-ms="59943">
       <class name="com.qa.runner.TestNGRunner">
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.qa.runner.TestNGRunner@35aea049]" started-at="2023-05-20T15:31:10 IST" name="afterTest" finished-at="2023-05-20T15:31:10 IST" duration-ms="17" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.qa.runner.TestNGRunner@47987356]" started-at="2023-05-22T16:00:15 IST" name="afterTest" finished-at="2023-05-22T16:00:15 IST" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.qa.runner.TestNGRunner@35aea049]" started-at="2023-05-20T15:31:10 IST" name="setUpClass" finished-at="2023-05-20T15:31:12 IST" duration-ms="1685" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.qa.runner.TestNGRunner@47987356]" started-at="2023-05-22T16:00:15 IST" name="setUpClass" finished-at="2023-05-22T16:00:17 IST" duration-ms="1776" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.qa.runner.TestNGRunner@35aea049]" started-at="2023-05-20T15:31:12 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-05-20T15:31:52 IST" duration-ms="40667" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.qa.runner.TestNGRunner@47987356]" started-at="2023-05-22T16:00:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-05-22T16:01:14 IST" duration-ms="56737" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,14 +27,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Verify Homepage and payments]"]]>
+                <![CDATA["Optional[Verify PurchaseFlow]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.qa.runner.TestNGRunner@35aea049]" started-at="2023-05-20T15:31:52 IST" name="tearDownClass" finished-at="2023-05-20T15:31:54 IST" duration-ms="1073" status="FAIL">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.qa.runner.TestNGRunner@47987356]" started-at="2023-05-22T16:01:14 IST" name="tearDownClass" finished-at="2023-05-22T16:01:15 IST" duration-ms="1350" status="FAIL">
           <exception class="java.lang.RuntimeException">
             <message>
               <![CDATA[javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target]]>
@@ -141,7 +141,7 @@ at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.qa.runner.TestNGRunner@35aea049]" started-at="2023-05-20T15:31:54 IST" name="beforeSuite" finished-at="2023-05-20T15:31:54 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.qa.runner.TestNGRunner@47987356]" started-at="2023-05-22T16:01:15 IST" name="beforeSuite" finished-at="2023-05-22T16:01:15 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->

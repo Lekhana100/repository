@@ -8,12 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class demoLogin{
+public class PurchaseFlowPage{
 	public static WebDriver driver;
 	int durationTime = 30;
 
 
-	public demoLogin(WebDriver driver) {
+	public PurchaseFlowPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}

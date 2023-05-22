@@ -34,7 +34,6 @@ public class TestNGRunner extends AbstractTestNGCucumberTests
 	@AfterSuite
 	public void beforeSuite() throws IOException
 	{
-		System.out.println("ENTERED AFTER SUITE");
 		report=ExtentService.getInstance();
 		
 	}
@@ -43,7 +42,6 @@ public class TestNGRunner extends AbstractTestNGCucumberTests
 	
 	public static void afterTest() throws IOException
 	{
-		System.out.println("Entered Before Suite");
 		String chromepath = System.getProperty("user.dir") + "\\resources\\" + "chromedriver.exe";
 
 		 System.setProperty(

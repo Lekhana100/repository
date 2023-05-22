@@ -18,7 +18,6 @@ public class config {
 	public void readYaml()
 
 	{
-		System.out.println("loading data from yaml");
 		Yaml yaml = new Yaml();
 		Set<String> keyset = new HashSet<String>();
 

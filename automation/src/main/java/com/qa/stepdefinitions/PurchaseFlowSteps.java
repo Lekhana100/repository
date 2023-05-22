@@ -1,5 +1,6 @@
 package com.qa.stepdefinitions;
 import static org.testng.Assert.assertEquals;
+
 import static org.testng.Assert.assertTrue;
 
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
+import org.apache.commons.text.CaseUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,18 +21,21 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.utils.*;
+import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
 import com.qa.pagefactories.*;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class demoLoginSteps  {
-	demoLogin demoHome_obj ;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class PurchaseFlowSteps  {
+	PurchaseFlowPage demoHome_obj ;
 	config	config_object  = new config();
 	public static WebDriver driver;
-	public demoLoginSteps(){
-		System.out.println("QA TEST: INSTANTING DemoHome PAGE OBJECT");
+	public PurchaseFlowSteps(){
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("chrome.switches", "--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling --disable-infobars --enable-automation --start-maximized");
 		options.addArguments("test-type");
@@ -48,7 +53,7 @@ public class demoLoginSteps  {
 		String url=(String)config_object.getyaml("home_url");
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-		demoHome_obj = new demoLogin(driver);
+		demoHome_obj = new PurchaseFlowPage(driver);
 
 	}
 
@@ -59,22 +64,18 @@ public class demoLoginSteps  {
 		 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(
 				"//img[contains(@title,'Automation Test Store')]")));		
 		//Thread.sleep(5000);
-		System.out.println("steps loaded");	
 		assertTrue(demoHome_obj.ishometitleDisplayed());
-		System.out.println("assertion passed");
-
+		ExtentCucumberAdapter.addTestStepLog("HomePage is loaded");
 	}
 
 	@Then("click on Login and register the new user in web")
 	public void loginuser()  {
-		System.out.println("new user entered");	
 		if(demoHome_obj.isloginDisplayed()) {
 			demoHome_obj.clicklogin();
-			System.out.println("login clicked");	
+			ExtentCucumberAdapter.addTestStepLog("Login Button is Clicked and New User is registered");
 
 		}
 		if(demoHome_obj.isnewuserheaderDisplayed());{
-			System.out.println("isnewuserheaderDisplayed assertion passed");
 			demoHome_obj.clickregcontinue();
 		}
 		String firstname=(String)config_object.getyaml("first_name");
@@ -118,32 +119,31 @@ public class demoLoginSteps  {
 			String actual_fn = demoHome_obj.chckhomeusername(firstname);
 			String replaced = actual_fn.replaceFirst("Welcome back", "").trim();
 			assertEquals(replaced, firstname);
-			System.out.println("username assertion passed");
+			ExtentCucumberAdapter.addTestStepLog("home element is displayed with login details:  "+firstname);
 		}
 
 
 
 	}
-	@SuppressWarnings("deprecation")
 	@And("Add a product to the cart and validate in the payment page")
 	public void Add_to_cart()  {
-		System.out.println("Adding products to cart");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,350)", "");
 		demoHome_obj.clickcartbtn();
 		js.executeScript("window.scrollBy(0,-350)", "");
 		if(demoHome_obj.ischeckoutcartDisplayed()) {
 			String item = demoHome_obj.getitemname();
-			String lower = item.toLowerCase();
-			String act_itemname = WordUtils.capitalizeFully(lower);			
-			System.out.println(act_itemname);
+			ExtentCucumberAdapter.addTestStepLog("Adding item to the Cart :" + item);
+			String[] itemname = new String[] {""};
+			Arrays.stream(item.split(" ")).forEach(s -> {itemname[0] += StringUtils.capitalize(s.toLowerCase()) + " ";});
+			String act_itemname = StringUtils.chop(itemname[0]);
 			demoHome_obj.clickcartitems();
 			demoHome_obj.clickcheckcart();
 			String actual_item = demoHome_obj.chckitemname(act_itemname);
 			assertEquals(actual_item,act_itemname);
-			System.out.println("itemname assertion passed");
+			ExtentCucumberAdapter.addTestStepLog("Expected itemname is:"+act_itemname + " and actual itemName is:"+actual_item+ ": " +"Assertion Passed");
 			demoHome_obj.clickhome();
-			System.out.println("Validated all Assertions and returned back to HomePage!!!");
+			ExtentCucumberAdapter.addTestStepLog("Validated all Assertions and returned back to HomePage!!!");
 			driver.close();
 		}
 
